@@ -75,7 +75,7 @@ export default function About() {
               {[
                 {
                   year: "Dec 2025 - Dec 2025",
-                  title: "Backend Developer Intern",
+                  title: "Project-Based Virtual Intern: Backend Developer Evermos x Rakamin ",
                   company: "Evermos x Rakamin Academy",
                   desc: [
                     "Developed a scalable Social Commerce Backend using Golang & Fiber, implementing Clean Architecture for maintainability.",

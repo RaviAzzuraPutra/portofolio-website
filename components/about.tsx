@@ -78,9 +78,11 @@ export default function About() {
                   title: "Project-Based Virtual Intern: Backend Developer Evermos x Rakamin ",
                   company: "Evermos x Rakamin Academy",
                   desc: [
-                    "Developed a scalable Social Commerce Backend using Golang & Fiber, implementing Clean Architecture for maintainability.",
-                    "Designed JWT Authentication and automated store creation flows to streamline user onboarding.",
-                    "Built robust Transaction & Product Management modules with MySQL atomic operations to ensure data integrity.",
+                    "Developed a social commerce backend platform using Golang and Fiber by applying Clean Architecture, resulting in a modular, testable, and extensible codebase.",
+                    "Designed and implemented JWT-based authentication and an automatic store creation workflow during user registration, streamlining reseller onboarding and ensuring data consistency.",
+                    "Built end-to-end product, category, and transaction management, including backend-side stock validation and price calculation to ensure transactional integrity and prevent data manipulation.",
+                    "Implemented relational data management with MySQL and ORM, while clearly separating business logic and data access layers to improve overall system maintainability and readability.",
+                    "The internship emphasizes problem-driven design, independent decision-making, and critical assessment rather than routine tasks, aligning closely with applied research practices.",
                   ],
                 },
                 {
@@ -88,9 +90,10 @@ export default function About() {
                   title: "Full Stack Developer Intern",
                   company: "PT. Motiolabs Digital Indonesia",
                   desc: [
-                    "Maintained and enhanced Masj.id CMS using Laravel (MVC) & MySQL, serving mosque communities.",
-                    "Collaborated via GitLab for version control and team coordination.",
-                    "Developed core backend features for news, schedules, and service management.",
+                    "Developing and maintaining the Masj.id CMS system based on Laravel with a MySQL database using MVC architecture.",
+                    "Coordinated with the development team using GitLab for efficient version management and project collaboration.",
+                    "Implementing backend features and user interfaces to manage mosque content such as schedules, news, services, and galleries.",
+                    "Through this internship, I developed a comprehensive understanding of full-stack web application development as an integrated engineering process rather than isolated technical tasks. The experience strengthened my ability to translate system requirements into structured application logic, balance backend functionality with user interface considerations, and apply version control as a collaborative governance mechanism within a development team. This internship reinforced the importance of maintainability, code structure, and teamwork as foundational principles in sustainable software development.",
                   ],
                 },
               ].map((item, idx) => (

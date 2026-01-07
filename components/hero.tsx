@@ -42,7 +42,7 @@ export default function Hero() {
         {/* Right Image */}
         <div className="relative mt-8 md:mt-0">
           <div className="aspect-square bg-gradient-to-br from-[#d4af37]/20 to-[#d4af37]/5 rounded-lg border-2 border-[#d4af37]/30 flex items-center justify-center overflow-hidden">
-            <div className="w-full h-full bg-[url('/backend-developer-workspace.jpg')] bg-cover bg-center opacity-30"></div>
+            <div className="w-full h-full bg-cover bg-center opacity-30"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative w-full h-full rounded-md overflow-hidden">
                 <img

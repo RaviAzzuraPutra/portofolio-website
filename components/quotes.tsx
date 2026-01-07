@@ -1,41 +1,35 @@
 export default function Quotes() {
   const quotes = [
     {
-      text: "The best code is no code. The second best code is code that solves the problem simply.",
-      author: "Ryan Dahl",
-      role: "Creator of Node.js",
+      text: "There is only one thing more painful than learning from experience and that is not learning from experience.",
+      author: "Archibald McLeish",
     },
     {
-      text: "Premature optimization is the root of all evil. But do it anyway if it makes the system better.",
-      author: "Donald Knuth",
-      role: "Computer Scientist",
+      text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+      author: "Martin Fowler",
     },
     {
-      text: "Good architecture is something that does not get in the way of the implementation.",
-      author: "Uncle Bob",
-      role: "Software Engineer",
+      text: "Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.",
+      author: "Patrick McKenzie",
     },
     {
-      text: "Perfect is the enemy of good. Ship fast, iterate faster.",
-      author: "Paul Buchheit",
-      role: "Gmail Creator",
+      text: "Programming isn’t about what you know; it’s about what you can figure out.",
+      author: "Chris Pine",
     },
     {
-      text: "The most important part of the code is the part that nobody reads.",
-      author: "Bill Kennedy",
-      role: "Go Developer",
+      text: "No matter which field of work you want to go in, it is of great importance to learn at least one programming language",
+      author: "Ram Ray",
     },
     {
-      text: "If it is a good idea, go ahead and do it. It is much easier to apologize than it is to get permission.",
-      author: "Grace Hopper",
-      role: "Pioneer Programmer",
+      text: "I don't care if it works on your machine! We are not shipping your machine!",
+      author: "Vidiu Platon",
     },
   ]
 
   return (
     <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-center">
-        Developer <span className="text-[#d4af37]">Wisdom</span>
+        ’Developer <span className="text-[#d4af37]">Quotes’</span>
       </h2>
       <div className="w-16 h-1 bg-[#d4af37] mx-auto mb-8 sm:mb-12"></div>
 
@@ -51,7 +45,6 @@ export default function Quotes() {
             </div>
             <div className="border-t border-[#d4af37]/20 pt-4">
               <p className="text-[#d4af37] font-semibold text-xs sm:text-sm">{quote.author}</p>
-              <p className="text-gray-400 text-xs">{quote.role}</p>
             </div>
           </div>
         ))}

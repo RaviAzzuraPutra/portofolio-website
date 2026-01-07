@@ -1,28 +1,27 @@
 export default function Skills() {
   const hardSkills = [
-    { category: "Languages", skills: ["JavaScript/TypeScript", "Python", "Go", "Java", "SQL"] },
-    { category: "Backend Frameworks", skills: ["Node.js/Express", "NestJS", "FastAPI", "Spring Boot", "Django"] },
-    { category: "Databases", skills: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "DynamoDB"] },
-    { category: "Cloud & DevOps", skills: ["AWS", "Docker", "Kubernetes", "CI/CD (GitHub Actions)", "Terraform"] },
-    { category: "Messaging & Streaming", skills: ["RabbitMQ", "Kafka", "WebSocket", "gRPC", "GraphQL"] },
-    { category: "Tools & Platforms", skills: ["Git", "Linux", "Postman", "Datadog", "New Relic"] },
+    { category: "Languages", skills: ["JavaScript", "Go", "PHP"] },
+    { category: "Backend Frameworks", skills: ["Node.js/Express", "Gin", "Fiber", "Laravel", "Next.js"] },
+    { category: "Databases", skills: ["PostgreSQL", "MongoDB", "MySQL"] },
+    { category: "Cloud & DevOps", skills: ["Docker", "CI/CD (GitHub Actions)"] },
+    { category: "Messaging & Streaming", skills: ["Kafka"] },
+    { category: "Concepts", skills: ["RESTful API", "Containerization", "Authentication", "JWT", "Monorepo", "MVC", "Microservices"] },
+    { category: "Tools & Platforms", skills: ["Git", "Postman", "Visual Studio Code", "GitHub"] },
   ]
 
   const softSkills = [
-    "Technical Leadership",
     "System Design",
-    "Code Review & Mentoring",
     "Problem Solving",
     "Communication",
-    "Project Management",
     "Team Collaboration",
     "Documentation Writing",
+    "Easily Adaptable",
   ]
 
   return (
     <section id="skills" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
-        Keahlian & <span className="text-[#d4af37]">Skills</span>
+        <span className="text-[#d4af37]">Skills</span>
       </h2>
       <div className="w-16 h-1 bg-[#d4af37] mb-8 sm:mb-12"></div>
 

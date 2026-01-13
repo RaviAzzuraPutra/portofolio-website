@@ -13,12 +13,13 @@ export default function About() {
 
           <div className="space-y-5 sm:space-y-6 text-gray-300 leading-relaxed text-sm sm:text-base text-justify">
             <p>
-              Backend Developer with technical expertise in the Golang, Node.js, and Laravel ecosystems.
-              Possesses a strong foundation in API development, SQL/NoSQL database management, Docker implementation,
-              and the integration of AI services and libraries based on APIs. Actively practices programming logic and algorithms
-              to enhance problem-solving skills and understanding of data structures.
-              Holds a Junior Web Developer certification (BNSP) and is a graduate of the MSIB Backend Developer Bootcamp Batch 6.
-              Eager to apply my skills in the technology industry and committed to continuous learning.
+              Backend Developer focused on building production-grade APIs using Golang and Node.js.
+              Hands-on experience designing clean architectures, enforcing data integrity at the API level,
+              and shipping systems that support real operational workflows. Experienced in SQL/NoSQL databases,
+              Docker, and integrating external and AI-based services via APIs. Trained through intensive backend
+              programs including MSIB Backend Developer Bootcamp Batch 6 (Gamelab.id) and
+              Sanbercode Golang Bootcamp, and holds a Junior Web Developer certification (BNSP).
+              Excited to use my skills in the tech field and committed to continuous learning.
             </p>
 
             <p>
@@ -78,10 +79,10 @@ export default function About() {
                   title: "Project-Based Virtual Intern: Backend Developer Evermos x Rakamin ",
                   company: "Evermos x Rakamin Academy",
                   desc: [
-                    "Developed a social commerce backend platform using Golang and Fiber by applying Clean Architecture, resulting in a modular, testable, and extensible codebase.",
-                    "Designed and implemented JWT-based authentication and an automatic store creation workflow during user registration, streamlining reseller onboarding and ensuring data consistency.",
-                    "Built end-to-end product, category, and transaction management, including backend-side stock validation and price calculation to ensure transactional integrity and prevent data manipulation.",
-                    "Implemented relational data management with MySQL and ORM, while clearly separating business logic and data access layers to improve overall system maintainability and readability.",
+                    "Developed a social commerce backend platform using Golang, Fiber, and Clean Architecture, to isolate business logic from infrastructure, reducing feature-change complexity and enabling independent scaling of authentication and transaction modules.",
+                    "Streamlined the reseller onboarding process by automating store creation during user registration, utilizing JWT-based authentication and secure password hashing to ensure immediate platform access and data consistency.",
+                    "Built complete product, category, and transaction management workflows, including backend-driven stock validation and pricing logic, which ensured transactional integrity and prevented data manipulation at the API level.",
+                    "Improved system maintainability and code clarity by utilizing the Repository Pattern with MySQL (GORM), successfully separating data access layers from the core business logic to facilitate easier expansion of future features.",
                     "The internship emphasizes problem-driven design, independent decision-making, and critical assessment rather than routine tasks, aligning closely with applied research practices.",
                   ],
                 },
@@ -90,9 +91,10 @@ export default function About() {
                   title: "Full Stack Developer Intern",
                   company: "PT. Motiolabs Digital Indonesia",
                   desc: [
-                    "Developing and maintaining the Masj.id CMS system based on Laravel with a MySQL database using MVC architecture.",
+                    "Developed and maintained the Masj.id CMS using Laravel and MySQL within an MVC architecture, ensuring a scalable and structured codebase for religious management services.",
                     "Coordinated with the development team using GitLab for efficient version management and project collaboration.",
-                    "Implementing backend features and user interfaces to manage mosque content such as schedules, news, services, and galleries.",
+                    "Improving the time efficiency of mosque administrators in managing and disseminating information by 88% through the digitization of activity agendas and public services.",
+                    "Strengthening the company's digital transformation solutions portfolio in the house of worship management sector by validating product readiness for market expansion, through the development of the Masj.id Content Management System application that automates information management and integrated digital services.",
                     "Through this internship, I developed a comprehensive understanding of full-stack web application development as an integrated engineering process rather than isolated technical tasks. The experience strengthened my ability to translate system requirements into structured application logic, balance backend functionality with user interface considerations, and apply version control as a collaborative governance mechanism within a development team. This internship reinforced the importance of maintainability, code structure, and teamwork as foundational principles in sustainable software development.",
                   ],
                 },

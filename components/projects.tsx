@@ -155,6 +155,32 @@ const projectsData = [
       "Achieved low-latency order processing (~60ms) with higher availability and resilience compared to monolithic systems.",
     repository: "https://github.com/RaviAzzuraPutra/LATIHAN-MICROSERVICE-NEW",
   },
+  {
+    id: 8,
+    title: "AuraStock: AI-Driven Multi-Objective Inventory Optimizer ",
+    category: "Backend REST API",
+    projectType: "Bootcamp Final Project",
+    associated: "Sanbercode",
+    date: "Jan 2026",
+    problem:
+      "Manual inventory management is prone to human error, leading to inaccurate stock records, overstocking, or stockouts, and lacks predictive capabilities for restocking.",
+    solution:
+      "Developed a Clean Architecture backend using Golang and PostgreSQL, integrated with Google Gemini AI to analyze transaction patterns and provide automated restocking recommendations.",
+    role: "Backend Engineer",
+    "tech": [
+      "Golang",
+      "Gin",
+      "GORM",
+      "PostgreSQL",
+      "Google Gemini AI",
+      "Cloudinary",
+      "JWT",
+      "Docker",
+    ],
+    results:
+      "Successfully automated stock tracking and AI-driven decision support, enabling real-time insights (SmartLog) and reducing the risk of stockouts through safety stock monitoring.",
+    repository: "https://github.com/RaviAzzuraPutra/lastproject-sanbercode-batch73",
+  },
 ];
 
 

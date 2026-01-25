@@ -185,12 +185,96 @@ func fib(n int) int {
     return fib(n-1) + fib(n-2)
 }
     `.trim(),
+  }, {
+    id: 6,
+    title: "Divide Two Integers",
+    difficulty: "Medium",
+    category: "Math / Bit Manipulation",
+    description:
+      "Given two integers dividend and divisor, divide two integers without using multiplication, division, and mod operator. The integer division should truncate toward zero.",
+    approach: [
+      "Handle overflow edge cases (e.g., INT_MIN divided by -1)",
+      "Determine the sign of the result based on input polarities",
+      "Convert operands to floating-point or absolute values for processing",
+      "Apply 32-bit signed integer constraints to the final quotient",
+    ],
+    timeComplexity: "O(1)",
+    spaceComplexity: "O(1)",
+    uniqueInsight:
+      "This problem serves as a boundary test for data type limitations. While the goal is to simulate division, the real challenge lies in navigating the asymmetric range of 32-bit signed integers, where the absolute value of the minimum integer exceeds the maximum.",
+    lesson:
+      "Pragmatic solutions sometimes leverage high-level language features (like float64) to bypass manual bit-shifting, though true algorithmic rigor often demands bitwise subtraction.",
+    conclusion:
+      "The implemented solution utilizes a pragmatic approach by leveraging float64 casting to handle the division and truncation. While the problem's spirit often invites bitwise manipulation, this strategy ensures precision within the 32-bit environment while maintaining code conciseness. It highlights an important engineering trade-off: choosing between low-level manual bit-arithmetic and the robustness of built-in type conversions to satisfy strict boundary conditions.",
+    language: "Go",
+    code: `
+func divide(dividend int, divisor int) int {
+    const MaxInt32 = 2147483647
+    const MinInt32 = -2147483648
+
+    var result float64
+
+    result = float64(dividend) / float64(divisor)
+
+    if result > float64(MaxInt32) {
+        return MaxInt32
+    }
+    
+    if result < float64(MinInt32) {
+        return MinInt32
+    }
+
+    return int(result)
+}
+    `.trim(),
+  }, {
+    id: 7,
+    title: "Find Target Indices After Sorting Array",
+    difficulty: "Easy",
+    category: "Sorting / Array",
+    description:
+      "You are given a 0-indexed integer array nums and a target element target. A target index is an index i such that nums[i] == target. Return a list of the target indices of nums after sorting nums in non-decreasing order.",
+    approach: [
+      "Sort the input array in non-decreasing order using a built-in sorting algorithm",
+      "Initialize an empty result slice to store the target indices",
+      "Iterate through the sorted array and compare each element with the target",
+      "Append the current index to the result list whenever a match is found",
+    ],
+    timeComplexity: "O(n log n)",
+    spaceComplexity: "O(n)",
+    uniqueInsight:
+      "Sorting transforms the array from a state of high entropy to a structured sequence, where identical elements are forced into a contiguous block. This structural alignment allows the search for indices to become a simple linear traversal, where the order of discovery naturally satisfies the requirement for sorted output.",
+    lesson:
+      "Leveraging built-in sorting functions often provides the best balance between implementation speed and runtime efficiency for standard-sized datasets.",
+    conclusion:
+      "The implemented solution serves as a classic example of the 'Sort-then-Process' pattern. By first reducing the problem's complexity through an O(n log n) sort, the subsequent extraction of indices becomes trivial. While a linear-time O(n) solution is theoretically possible by counting elements smaller than and equal to the target, the sorting approach offers superior readability and utilizes highly optimized standard library functions, making it a robust choice for practical software development.",
+    language: "Go",
+    code: `
+func targetIndices(nums []int, target int) []int {
+    sort.Ints(nums)
+
+    var result []int
+
+    for key, value := range nums {
+        if value == target {
+            result = append(result, key)
+        }
+    }
+
+    return result
+}
+    `.trim(),
   },
 ];
 
 
 export default function LeetCode() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
+
+  const totalSolved = leetcodeProblems.length;
+  const easyCount = leetcodeProblems.filter((p) => p.difficulty === "Easy").length;
+  const mediumCount = leetcodeProblems.filter((p) => p.difficulty === "Medium").length;
+  const hardCount = leetcodeProblems.filter((p) => p.difficulty === "Hard").length;
 
   return (
     <section id="leetcode" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -297,10 +381,10 @@ export default function LeetCode() {
         <h3 className="text-[#d4af37] font-semibold mb-3 sm:mb-4 text-sm sm:text-base">📊 ~LeetCode Stats~ 📊</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-4 text-center">
           {[
-            { label: "Problems Solved By Myself", value: "5" },
-            { label: "Easy", value: "3" },
-            { label: "Medium", value: "2" },
-            { label: "Hard", value: "0" },
+            { label: "Problems Solved By Myself", value: totalSolved },
+            { label: "Easy", value: easyCount },
+            { label: "Medium", value: mediumCount },
+            { label: "Hard", value: hardCount },
           ].map((stat) => (
             <div key={stat.label}>
               <p className="text-xl sm:text-2xl font-bold text-[#d4af37]">{stat.value}</p>

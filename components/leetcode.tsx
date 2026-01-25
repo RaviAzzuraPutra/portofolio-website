@@ -104,17 +104,19 @@ func singleNumber(nums []int) int {
     code: `
 func singleNumber(nums []int) []int {
     single := make(map[int]int)
-    result := []int{}
 
     for _, value := range nums {
         single[value]++
     }
 
-    for key := range single {
+    result := []int{}
+
+    for key, _ := range single {
         if single[key] == 1 {
             result = append(result, key)
         }
     }
+
     return result
 }
     `.trim(),
@@ -143,14 +145,17 @@ func singleNumber(nums []int) []int {
     code: `
 func missingNumber(nums []int) int {
     sort.Ints(nums)
-    missing := 0
+    var Missing int
 
     for i := 0; i < len(nums); i++ {
-        if nums[i] == missing {
-            missing++
+        if Missing == nums[i] {
+            Missing++
+        } else {
+            return i
         }
     }
-    return missing
+
+    return Missing
 }
     `.trim(),
   },
@@ -258,6 +263,47 @@ func targetIndices(nums []int, target int) []int {
     for key, value := range nums {
         if value == target {
             result = append(result, key)
+        }
+    }
+
+    return result
+}
+    `.trim(),
+  }, {
+    id: 8,
+    title: "Sum of Unique Elements",
+    difficulty: "Easy",
+    category: "Hash Map / Counting",
+    description:
+      "You are given an integer array nums. The unique elements of an array are the elements that appear exactly once in the array. Return the sum of all the unique elements of nums.",
+    approach: [
+      "Initialize a hash map to track the frequency of each integer",
+      "Perform a first pass over the array to populate the frequency table",
+      "Iterate through the map entries to identify elements with a count of exactly one",
+      "Accumulate and return the sum of these unique keys",
+    ],
+    timeComplexity: "O(n)",
+    spaceComplexity: "O(n)",
+    uniqueInsight:
+      "This problem illustrates the decoupling of **state capture** (frequency counting) from **logic execution** (summation). By treating the dataset as a frequency distribution rather than a mere sequence, we transform a potential search problem into a direct lookup task.",
+    lesson:
+      "When uniqueness is the criteria, a frequency map is often the most robust tool, deliberately trading memory usage (Space) to eliminate complex nested iterations (Time).",
+    conclusion:
+      "The solution exemplifies the classic **Space-Time Trade-off** paradigm in algorithmic design. By allocating auxiliary memory for a Hash Map, the algorithm successfully avoids the quadratic complexity O(N²) of brute-force comparisons, achieving a deterministic linear time complexity of O(N). It demonstrates that strategically increasing the memory footprint is often the most effective way to minimize computational latency in frequency-based queries.",
+    language: "Go",
+    code: `
+func sumOfUnique(nums []int) int {
+    UniqueNumber := make(map[int]int)
+
+    for _, value := range nums {
+        UniqueNumber[value]++
+    }
+
+    var result int
+
+    for key, value := range UniqueNumber {
+        if value == 1 {
+            result += key
         }
     }
 

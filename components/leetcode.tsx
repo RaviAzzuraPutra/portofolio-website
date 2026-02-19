@@ -311,6 +311,80 @@ func sumOfUnique(nums []int) int {
 }
     `.trim(),
   },
+  {
+    id: 9,
+    title: "Median of Two Sorted Arrays",
+    difficulty: "Hard",
+    category: "Array / Sorting",
+    description:
+      "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).",
+    approach: [
+      "Allocate a new array large enough to store all elements from both input arrays",
+      "Copy the contents of both arrays into this new array using the copy function",
+      "Sort the combined array to ensure all elements are in the correct order",
+      "If the total length is odd, return the element at the middle index",
+      "If the total length is even, return the average of the two middle elements"
+    ],
+    timeComplexity: "O((m+n) log(m+n))",
+    spaceComplexity: "O(m+n)",
+    uniqueInsight:
+      "This approach prioritizes conceptual simplicity and code readability. By merging and re-sorting, we treat the problem as a global ordering task rather than a pointer-based partitioning task, making the logic much easier to validate at the expense of theoretical peak performance.",
+    lesson:
+      "While the problem asks for O(log(m+n)), a merge-and-sort strategy provides a reliable baseline. It highlights the trade-off between brute-force merging and optimal divide-and-conquer strategies.",
+    conclusion:
+      "This solution is correct but emphasizes conceptual simplicity. It is like merging two sorted decks of cards into one big sorted deck and then drawing the card in the middle. While it doesn't meet the O(log(m+n)) constraint of a perfect binary search approach, it serves as a robust implementation that is easy to debug and maintain.",
+    language: "Go",
+    code: `
+func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+    result := make([]int, len(nums1)+len(nums2))
+    copy(result, nums1)
+    copy(result[len(nums1):], nums2)
+    sort.Ints(result)
+
+    mid1 := len(result)/2 - 1
+    mid2 := len(result)/2
+
+    if len(result)%2 == 0 {
+        return float64(result[mid1]+result[mid2]) / 2
+    }
+
+    if len(result)%2 != 0 {
+        return float64(result[len(result)/2])
+    }
+
+    return 0.0
+}
+    `.trim(),
+  },
+  {
+    id: 10,
+    title: "Add Two Integers",
+    difficulty: "Easy",
+    category: "Math",
+    description:
+      "Given two integers num1 and num2, return the sum of the two integers.",
+    approach: [
+      "Identify the two input integers provided as parameters",
+      "Perform a direct arithmetic addition using the '+' operator",
+      "Store the sum in a variable or return it directly as the result"
+    ],
+    timeComplexity: "O(1)",
+    spaceComplexity: "O(1)",
+    uniqueInsight:
+      "Integer addition embodies a deep interplay between hardware and abstraction. While it appears as a simple high-level command, it is realized by fundamental adder circuits and serves as the fastest CPU instruction, underpinning everything from memory addressing to complex linear algebra.",
+    lesson:
+      "This problem serves as a reminder that even the most basic primitives in computing carry significant theoretical weight, defining the commutative (Abelian) group operation that modern arithmetic is built upon.",
+    conclusion:
+      "The implementation is trivial, yet it highlights the efficiency of bit-level operations. On fixed-size machine words, this is treated as a constant-time operation, illustrating the peak of implementation efficiency in software engineering.",
+    language: "Go",
+    code: `
+func sum(num1 int, num2 int) int {
+    result := num1 + num2
+
+    return result
+}
+    `.trim(),
+  },
 ];
 
 

@@ -194,73 +194,57 @@ export default function Projects() {
       </h2>
       <div className="w-16 h-1 bg-[#d4af37] mb-8 sm:mb-12"></div>
 
-      <div className="space-y-4 sm:space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projectsData.map((project) => (
           <div
             key={project.id}
-            className="bg-[#1a1a1a] border-2 border-[#d4af37]/30 rounded-lg overflow-hidden hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-[#d4af37]/20"
+            className="bg-[#1a1a1a] border-2 border-[#d4af37]/30 rounded-lg overflow-hidden hover:border-[#d4af37] transition-all duration-300"
           >
-            <div className="p-4 sm:p-6 md:p-8">
-              <div className="flex items-start justify-between gap-3 sm:gap-4 mb-4">
+            <div className="p-4 sm:p-4">
+              <div className="flex items-start justify-between gap-3 mb-2">
                 <div className="flex-1 min-w-0">
-                  <div className="inline-block px-3 py-1 bg-[#d4af37]/20 text-[#d4af37] text-xs font-semibold rounded-full mb-2 sm:mb-3">
+                  <div className="inline-block px-2 py-0.5 bg-[#d4af37]/20 text-[#d4af37] text-xs font-semibold rounded-full mb-2">
                     {project.category}
                   </div>
-                  <h3 className="text-lg sm:text-2xl font-bold text-white break-words">{project.title}</h3>
-                  <p className="text-gray-400 text-xs sm:text-sm break-words">Associated With : {project.associated}</p>
+                  <h3 className="text-sm sm:text-lg font-bold text-white break-words truncate">{project.title}</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm truncate">{project.associated}</p>
                 </div>
                 <button
                   onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}
-                  className={`text-[#d4af37] transition-transform duration-300 flex-shrink-0 mt-2 ${expandedId === project.id ? "rotate-90" : ""
+                  className={`text-[#d4af37] transition-transform duration-300 flex-shrink-0 mt-1 ${expandedId === project.id ? "rotate-90" : ""
                     }`}
                 >
-                  <ChevronRight size={24} />
+                  <ChevronRight size={20} />
                 </button>
               </div>
 
               {expandedId === project.id && (
-                <div className="space-y-5 sm:space-y-6 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-[#d4af37]/20">
-                  <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-                    <div>
-                      <h4 className="text-[#d4af37] font-semibold mb-2 text-sm sm:text-base">Project Type</h4>
-                      <p className="text-gray-300 text-sm sm:text-base">{project.projectType}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-[#d4af37] font-semibold mb-2 text-sm sm:text-base">Date</h4>
-                      <p className="text-gray-300 text-sm sm:text-base">{project.date}</p>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-                    <div>
-                      <h4 className="text-[#d4af37] font-semibold mb-2 text-sm sm:text-base">Problems</h4>
-                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base">{project.problem}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-[#d4af37] font-semibold mb-2 text-sm sm:text-base">Solutions</h4>
-                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base">{project.solution}</p>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-                    <div>
-                      <h4 className="text-[#d4af37] font-semibold mb-2 text-sm sm:text-base">My Role</h4>
-                      <p className="text-gray-300 text-sm sm:text-base">{project.role}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-[#d4af37] font-semibold mb-2 text-sm sm:text-base">Results</h4>
-                      <p className="text-gray-300 text-sm sm:text-base">{project.results}</p>
-                    </div>
+                <div className="space-y-4 mt-3 pt-3 border-t border-[#d4af37]/20">
+                  <div>
+                    <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Project Type</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">{project.projectType}</p>
                   </div>
 
                   <div>
-                    <h4 className="text-[#d4af37] font-semibold mb-3 text-sm sm:text-base">Tech Stack</h4>
+                    <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Date</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">{project.date}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Problems</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">{project.problem}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Solutions</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">{project.solution}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Tech Stack</h4>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-[#d4af37]/10 text-[#d4af37] text-xs font-medium rounded border border-[#d4af37]/30"
-                        >
+                        <span key={tech} className="px-2 py-0.5 bg-[#d4af37]/10 text-[#d4af37] text-xs font-medium rounded border border-[#d4af37]/30">
                           {tech}
                         </span>
                       ))}
@@ -268,18 +252,13 @@ export default function Projects() {
                   </div>
 
                   <div>
-                    <h4 className="text-[#d4af37] font-semibold mb-2 text-sm sm:text-base">Repository</h4>
+                    <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Repository</h4>
                     {project.repository && project.repository !== "-" ? (
-                      <a
-                        href={project.repository}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 hover:underline break-all text-sm sm:text-base transition-colors"
-                      >
+                      <a href={project.repository} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 hover:underline break-all text-xs sm:text-sm transition-colors">
                         {project.repository}
                       </a>
                     ) : (
-                      <p className="text-gray-400 text-sm sm:text-base">Private Repository / Not Available</p>
+                      <p className="text-gray-400 text-xs sm:text-sm">Private Repository / Not Available</p>
                     )}
                   </div>
                 </div>

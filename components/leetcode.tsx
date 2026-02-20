@@ -273,7 +273,7 @@ func targetIndices(nums []int, target int) []int {
     id: 8,
     title: "Sum of Unique Elements",
     difficulty: "Easy",
-    category: "Hash Map / Counting",
+    category: "Hash Map",
     description:
       "You are given an integer array nums. The unique elements of an array are the elements that appear exactly once in the array. Return the sum of all the unique elements of nums.",
     approach: [
@@ -315,7 +315,7 @@ func sumOfUnique(nums []int) int {
     id: 9,
     title: "Median of Two Sorted Arrays",
     difficulty: "Hard",
-    category: "Array / Sorting",
+    category: "Sorting / Array",
     description:
       "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).",
     approach: [
@@ -390,11 +390,18 @@ func sum(num1 int, num2 int) int {
 
 export default function LeetCode() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
+  const [openCategory, setOpenCategory] = useState<string | null>(null)
 
   const totalSolved = leetcodeProblems.length;
   const easyCount = leetcodeProblems.filter((p) => p.difficulty === "Easy").length;
   const mediumCount = leetcodeProblems.filter((p) => p.difficulty === "Medium").length;
   const hardCount = leetcodeProblems.filter((p) => p.difficulty === "Hard").length;
+
+  const groupedByCategory: Record<string, typeof leetcodeProblems> = leetcodeProblems.reduce((acc, cur) => {
+    if (!acc[cur.category]) acc[cur.category] = []
+    acc[cur.category].push(cur)
+    return acc
+  }, {} as Record<string, typeof leetcodeProblems>)
 
   return (
     <section id="leetcode" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -403,94 +410,73 @@ export default function LeetCode() {
       </h2>
       <div className="w-16 h-1 bg-[#d4af37] mb-8 sm:mb-12"></div>
 
-      <div className="space-y-4 sm:space-y-6">
-        {leetcodeProblems.map((problem) => (
-          <div
-            key={problem.id}
-            className="bg-[#1a1a1a] border-2 border-[#d4af37]/30 rounded-lg overflow-hidden hover:border-[#d4af37] transition-all duration-300"
-          >
+      <div className="space-y-6">
+        {Object.keys(groupedByCategory).map((category) => (
+          <div key={category} className="bg-transparent">
             <button
-              onClick={() => setExpandedId(expandedId === problem.id ? null : problem.id)}
-              className="w-full p-4 sm:p-6 flex items-start justify-between hover:bg-[#d4af37]/5 transition-colors duration-300 gap-3"
+              onClick={() => setOpenCategory(openCategory === category ? null : category)}
+              className="w-full flex items-center justify-between py-3 px-2 sm:px-3 bg-[#0f0f0f]/10 rounded-md hover:bg-[#0f0f0f]/08 transition-colors"
             >
-              <div className="text-left flex-1 min-w-0">
-                <div className="flex items-center gap-2 sm:gap-3 mb-2 flex-wrap">
-                  <h3 className="text-base sm:text-xl font-bold text-white">{problem.title}</h3>
-                  <span
-                    className={`text-xs font-semibold px-2 sm:px-3 py-1 rounded whitespace-nowrap ${problem.difficulty === "Hard"
-                      ? "bg-red-500/20 text-red-400"
-                      : problem.difficulty === "Medium"
-                        ? "bg-yellow-500/20 text-yellow-400"
-                        : "bg-green-500/20 text-green-400"
-                      }`}
-                  >
-                    {problem.difficulty}
-                  </span>
-                  <span className="text-xs px-2 sm:px-3 py-1 bg-[#d4af37]/20 text-[#d4af37] rounded">
-                    {problem.category}
-                  </span>
-                </div>
-                <p className="text-gray-400 text-xs sm:text-sm break-words">{problem.description}</p>
+              <div className="flex items-center gap-3">
+                <h3 className="text-base sm:text-lg font-semibold text-white">{category}</h3>
+                <span className="text-xs text-gray-400">{groupedByCategory[category].length} problems</span>
               </div>
-              <ChevronDown
-                size={20}
-                className={`text-[#d4af37] flex-shrink-0 transition-transform duration-300 mt-1 ${expandedId === problem.id ? "rotate-180" : ""
-                  }`}
-              />
+              <ChevronDown size={18} className={`text-[#d4af37] transition-transform ${openCategory === category ? "rotate-180" : ""}`} />
             </button>
 
-            {expandedId === problem.id && (
-              <div className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-[#d4af37]/20 space-y-4 sm:space-y-6">
-                <div>
-                  <h4 className="text-[#d4af37] font-semibold mb-2 text-xs sm:text-base mt-3">Programming Languages Used</h4>
-                  <p className="text-gray-300 text-xs sm:text-sm mb-3">{problem.language}</p>
-                  <h4 className="text-[#d4af37] font-semibold mb-3 text-sm sm:text-base">Approach & Algoritma</h4>
-                  <ul className="space-y-2">
-                    {problem.approach.map((step, idx) => (
-                      <li key={idx} className="flex gap-3 text-gray-300 text-xs sm:text-sm">
-                        <span className="text-[#d4af37] font-bold flex-shrink-0">{idx + 1}.</span>
-                        <span>{step}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            {openCategory === category && (
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {groupedByCategory[category].map((problem) => (
+                  <div key={problem.id} className="bg-[#1a1a1a] border-2 border-[#d4af37]/20 rounded-lg overflow-hidden hover:border-[#d4af37] transition-all duration-300">
+                    <button
+                      onClick={() => setExpandedId(expandedId === problem.id ? null : problem.id)}
+                      className="w-full p-3 flex flex-col items-start gap-2 text-left"
+                    >
+                      <div className="flex items-center gap-2 w-full">
+                        <h4 className="text-sm sm:text-base font-bold text-white flex-1 truncate">{problem.title}</h4>
+                        <span
+                          className={`text-xs font-semibold px-2 py-0.5 rounded whitespace-nowrap ${problem.difficulty === "Hard"
+                            ? "bg-red-500/20 text-red-400"
+                            : problem.difficulty === "Medium"
+                              ? "bg-yellow-500/20 text-yellow-400"
+                              : "bg-green-500/20 text-green-400"
+                            }`}
+                        >
+                          {problem.difficulty}
+                        </span>
+                      </div>
+                      <p className="text-gray-400 text-xs sm:text-sm line-clamp-3">{problem.description}</p>
+                      <span className="text-xs px-2 py-0.5 bg-[#d4af37]/10 text-[#d4af37] rounded mt-2">{problem.category}</span>
+                    </button>
 
-                <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
-                  <div>
-                    <h4 className="text-[#d4af37] font-semibold mb-2 text-xs sm:text-base">Time Complexity</h4>
-                    <p className="text-gray-300 font-mono bg-[#0f0f0f] p-2 sm:p-3 rounded text-xs sm:text-sm">
-                      {problem.timeComplexity}
-                    </p>
+                    {expandedId === problem.id && (
+                      <div className="px-3 pb-3 border-t border-[#d4af37]/20 space-y-3">
+                        <div>
+                          <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Languages</h4>
+                          <p className="text-gray-300 text-xs sm:text-sm">{problem.language}</p>
+                        </div>
+                        <div>
+                          <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Approach</h4>
+                          <ul className="list-inside list-decimal text-gray-300 text-xs sm:text-sm space-y-1">
+                            {problem.approach.map((a, i) => (
+                              <li key={i}>{a}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <h5 className="text-[#d4af37] text-xs sm:text-sm font-semibold">Time</h5>
+                            <p className="text-gray-300 text-xs sm:text-sm font-mono">{problem.timeComplexity}</p>
+                          </div>
+                          <div>
+                            <h5 className="text-[#d4af37] text-xs sm:text-sm font-semibold">Space</h5>
+                            <p className="text-gray-300 text-xs sm:text-sm font-mono">{problem.spaceComplexity}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  <div>
-                    <h4 className="text-[#d4af37] font-semibold mb-2 text-xs sm:text-base">Space Complexity</h4>
-                    <p className="text-gray-300 font-mono bg-[#0f0f0f] p-2 sm:p-3 rounded text-xs sm:text-sm">
-                      {problem.spaceComplexity}
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-[#d4af37] font-semibold mb-2 text-xs sm:text-base">Unique Insight</h4>
-                  <p className="text-gray-300 text-xs sm:text-sm">{problem.uniqueInsight}</p>
-                </div>
-
-                <div>
-                  <h4 className="text-[#d4af37] font-semibold mb-2 text-xs sm:text-base">Key Learning</h4>
-                  <p className="text-gray-300 italic text-xs sm:text-sm">{problem.lesson}</p>
-                </div>
-
-                <div>
-                  <h4 className="text-[#d4af37] font-semibold mb-2 text-xs sm:text-base">Conclusion</h4>
-                  <p className="text-gray-300 text-xs sm:text-sm">{problem.conclusion}</p>
-                </div>
-
-                <div>
-                  <h4 className="text-[#d4af37] font-semibold mb-3 text-xs sm:text-base">Solution Code</h4>
-                  <pre className="bg-[#0f0f0f] p-3 sm:p-4 rounded overflow-x-auto text-xs sm:text-sm text-gray-300 border border-[#d4af37]/20">
-                    <code>{problem.code}</code>
-                  </pre>
-                </div>
+                ))}
               </div>
             )}
           </div>

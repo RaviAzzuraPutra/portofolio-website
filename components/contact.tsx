@@ -28,64 +28,6 @@ export default function Contact() {
       <div className="w-16 h-1 bg-[#d4af37] mb-8 sm:mb-12"></div>
 
       <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-        {/* Contact Form */}
-        <div>
-          <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Send Message</h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-white font-semibold mb-2 text-sm sm:text-base">Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                required
-                className="w-full px-4 py-2.5 sm:py-3 bg-[#1a1a1a] border border-[#d4af37]/30 rounded-lg text-white placeholder-gray-500 focus:border-[#d4af37] focus:outline-none transition-colors duration-300 text-sm sm:text-base"
-              />
-            </div>
-
-            <div>
-              <label className="block text-white font-semibold mb-2 text-sm sm:text-base">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="email@example.com"
-                required
-                className="w-full px-4 py-2.5 sm:py-3 bg-[#1a1a1a] border border-[#d4af37]/30 rounded-lg text-white placeholder-gray-500 focus:border-[#d4af37] focus:outline-none transition-colors duration-300 text-sm sm:text-base"
-              />
-            </div>
-
-            <div>
-              <label className="block text-white font-semibold mb-2 text-sm sm:text-base">Message</label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Please write your message here..."
-                rows={5}
-                required
-                className="w-full px-4 py-2.5 sm:py-3 bg-[#1a1a1a] border border-[#d4af37]/30 rounded-lg text-white placeholder-gray-500 focus:border-[#d4af37] focus:outline-none transition-colors duration-300 resize-none text-sm sm:text-base"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full px-6 py-2.5 sm:py-3 bg-[#d4af37] text-black font-semibold rounded-lg hover:bg-[#e8c547] transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
-            >
-              Send Message
-            </button>
-
-            {submitted && (
-              <div className="p-3 sm:p-4 bg-green-500/20 border border-green-500/50 text-green-300 rounded-lg text-center text-xs sm:text-sm">
-                ✓ Message sent! I will respond shortly.
-              </div>
-            )}
-          </form>
-        </div>
-
         {/* Contact Options */}
         <div className="space-y-4 sm:space-y-6">
           <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Other Ways to Contact</h3>
@@ -132,14 +74,6 @@ export default function Contact() {
               </div>
             </a>
           ))}
-
-          {/* Quick Reply Message */}
-          <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-[#d4af37]/10 border border-[#d4af37]/30 rounded-lg">
-            <p className="text-white mb-2 sm:mb-3 text-xs sm:text-sm">
-              <span className="text-[#d4af37] font-semibold">Availability:</span> I am open to discussions about new projects, collaborations, and exciting opportunities.
-            </p>
-            <p className="text-gray-400 text-xs">Response time: I am usually respond within 24 hours to all inquiries.</p>
-          </div>
         </div>
       </div>
     </section>

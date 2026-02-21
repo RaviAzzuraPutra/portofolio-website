@@ -194,7 +194,7 @@ export default function Projects() {
       </h2>
       <div className="w-16 h-1 bg-[#d4af37] mb-8 sm:mb-12"></div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid items-start grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projectsData.map((project) => (
           <div
             key={project.id}

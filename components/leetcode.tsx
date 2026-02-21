@@ -425,7 +425,7 @@ export default function LeetCode() {
             </button>
 
             {openCategory === category && (
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="mt-4 grid items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {groupedByCategory[category].map((problem) => (
                   <div key={problem.id} className="bg-[#1a1a1a] border-2 border-[#d4af37]/20 rounded-lg overflow-hidden hover:border-[#d4af37] transition-all duration-300">
                     <button
@@ -472,6 +472,28 @@ export default function LeetCode() {
                             <h5 className="text-[#d4af37] text-xs sm:text-sm font-semibold">Space</h5>
                             <p className="text-gray-300 text-xs sm:text-sm font-mono">{problem.spaceComplexity}</p>
                           </div>
+                        </div>
+
+                        <div>
+                          <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Unique Insight</h4>
+                          <p className="text-gray-300 text-xs sm:text-sm">{problem.uniqueInsight}</p>
+                        </div>
+
+                        <div>
+                          <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Key Learning</h4>
+                          <p className="text-gray-300 italic text-xs sm:text-sm">{problem.lesson}</p>
+                        </div>
+
+                        <div>
+                          <h4 className="text-[#d4af37] font-semibold mb-1 text-xs sm:text-sm">Conclusion</h4>
+                          <p className="text-gray-300 text-xs sm:text-sm">{problem.conclusion}</p>
+                        </div>
+
+                        <div>
+                          <h4 className="text-[#d4af37] font-semibold mb-2 text-xs sm:text-sm">Solution Code</h4>
+                          <pre className="bg-[#0f0f0f] p-2 sm:p-3 rounded overflow-x-auto text-xs sm:text-sm text-gray-300 border border-[#d4af37]/20">
+                            <code>{problem.code}</code>
+                          </pre>
                         </div>
                       </div>
                     )}

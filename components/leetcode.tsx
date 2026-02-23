@@ -385,6 +385,41 @@ func sum(num1 int, num2 int) int {
 }
     `.trim(),
   },
+  {
+    id: 11,
+    title: "Sort Colors",
+    difficulty: "Medium",
+    category: "Sorting / Array",
+    description:
+      "Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue (0, 1, and 2). You must solve this without using the library's sort function.",
+    approach: [
+      "Use a nested loop structure to implement the Bubble Sort algorithm",
+      "The outer loop iterates through the entire array to repeat the comparison process",
+      "The inner loop compares adjacent elements (nums[j] and nums[j+1])",
+      "If the left element is greater than the right, swap them to move the larger value toward the end",
+      "Reduce the inner loop range in each iteration as the end of the array becomes sorted"
+    ],
+    timeComplexity: "O(n^2)",
+    spaceComplexity: "O(1)",
+    uniqueInsight:
+      "Bubble Sort aligns naturally with the 'sorting by appearance' requirement. By repeatedly bubbling the largest unsorted value (2, then 1) to the right, the array eventually settles into the required 0-1-2 sequence without needing complex partitioning logic.",
+    lesson:
+      "While Bubble Sort is often criticized for its quadratic time complexity, its simplicity and O(1) space usage make it an excellent pedagogical tool for understanding in-place swaps and stable sorting heuristics.",
+    conclusion:
+      "The solution successfully passes all 89 test cases, proving that for small constraints (n <= 300), an O(n^2) approach is computationally acceptable. However, it highlights a trade-off: while conceptually simple, it is asymptotically suboptimal compared to linear-time solutions like the Dutch National Flag algorithm.",
+    language: "Go",
+    code: `
+func sortColors(nums []int) {
+    for i := 0; i < len(nums); i++ {
+        for j := 0; j < len(nums)-i-1; j++ {
+            if nums[j] > nums[j+1] {
+                nums[j], nums[j+1] = nums[j+1], nums[j]
+            }
+        }
+    }
+}
+    `.trim(),
+  },
 ];
 
 

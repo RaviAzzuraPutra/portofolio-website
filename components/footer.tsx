@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-[#d4af37] rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-black font-bold text-sm"><img src="/assets/flower.png" alt="japan-sakura" /></span>
+                <span className="text-black font-bold text-sm"><img src="/assets/coding.svg" alt="japan-sakura" /></span>
               </div>
               <span className="text-white font-bold text-sm sm:text-base">Ravi Azzura Putra</span>
             </div>
@@ -84,9 +84,6 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3 sm:mb-4 text-xs sm:text-base">Stats</h4>
             <ul className="space-y-2 text-gray-400 text-xs sm:text-sm">
-              <li>
-                Projects: <span className="text-[#d4af37] font-semibold">Several</span>
-              </li>
               <li>
                 Experience: <span className="text-[#d4af37] font-semibold">3 Months</span>
               </li>

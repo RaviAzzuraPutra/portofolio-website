@@ -21,7 +21,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-[#d4af37] rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-lg"><img src="/assets/flower.png" alt="japan-sakura" /></span>
+              <span className="text-black font-bold text-lg"><img src="/assets/coding.svg" alt="japan-sakura" /></span>
             </div>
             <span className="text-white font-bold text-xl hidden sm:inline">Ravi Azzura Putra</span>
           </div>

@@ -9,6 +9,8 @@ import LeetCode from "@/components/leetcode"
 import Quotes from "@/components/quotes"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
+import WorkExperience from "@/components/work-experience"
+import Education from "@/components/education"
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <WorkExperience />
+      <Education />
       <Projects />
       <Skills />
       <LeetCode />

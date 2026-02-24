@@ -202,12 +202,26 @@ export default function Projects() {
           >
             <div className="p-4 sm:p-4">
               <div className="flex items-start justify-between gap-3 mb-2">
-                <div className="flex-1 min-w-0">
+                <div
+                  className="flex-1 min-w-0 cursor-pointer"
+                  onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      setExpandedId(expandedId === project.id ? null : project.id)
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                >
                   <div className="inline-block px-2 py-0.5 bg-[#d4af37]/20 text-[#d4af37] text-xs font-semibold rounded-full mb-2">
                     {project.category}
                   </div>
-                  <h3 className="text-sm sm:text-lg font-bold text-white break-words truncate">{project.title}</h3>
-                  <p className="text-gray-400 text-xs sm:text-sm truncate">{project.associated}</p>
+                  <h3 className={`text-sm sm:text-lg font-bold text-white break-words ${expandedId === project.id ? "whitespace-normal" : "truncate"}`}>
+                    {project.title}
+                  </h3>
+                  <p className={`text-gray-400 text-xs sm:text-sm ${expandedId === project.id ? "whitespace-normal break-words" : "truncate"}`}>
+                    {project.associated}
+                  </p>
                 </div>
                 <button
                   onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}

@@ -29,10 +29,6 @@ export default function Hero() {
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-[#d4af37]/20">
             <div>
-              <p className="text-2xl sm:text-3xl font-bold text-[#d4af37]">Several</p>
-              <p className="text-gray-400 text-xs sm:text-sm">Project Success</p>
-            </div>
-            <div>
               <p className="text-2xl sm:text-3xl font-bold text-[#d4af37]">3 Month</p>
               <p className="text-gray-400 text-xs sm:text-sm">Experience</p>
             </div>

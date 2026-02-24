@@ -465,10 +465,13 @@ export default function LeetCode() {
                   <div key={problem.id} className="bg-[#1a1a1a] border-2 border-[#d4af37]/20 rounded-lg overflow-hidden hover:border-[#d4af37] transition-all duration-300">
                     <button
                       onClick={() => setExpandedId(expandedId === problem.id ? null : problem.id)}
+                      aria-expanded={expandedId === problem.id}
                       className="w-full p-3 flex flex-col items-start gap-2 text-left"
                     >
                       <div className="flex items-center gap-2 w-full">
-                        <h4 className="text-sm sm:text-base font-bold text-white flex-1 truncate">{problem.title}</h4>
+                        <h4 className={`text-sm sm:text-base font-bold text-white flex-1 ${expandedId === problem.id ? "whitespace-normal" : "truncate"}`}>
+                          {problem.title}
+                        </h4>
                         <span
                           className={`text-xs font-semibold px-2 py-0.5 rounded whitespace-nowrap ${problem.difficulty === "Hard"
                             ? "bg-red-500/20 text-red-400"
@@ -480,7 +483,9 @@ export default function LeetCode() {
                           {problem.difficulty}
                         </span>
                       </div>
-                      <p className="text-gray-400 text-xs sm:text-sm line-clamp-3">{problem.description}</p>
+                      <p className={`text-gray-400 text-xs sm:text-sm ${expandedId === problem.id ? "whitespace-normal break-words" : "line-clamp-3"}`}>
+                        {problem.description}
+                      </p>
                       <span className="text-xs px-2 py-0.5 bg-[#d4af37]/10 text-[#d4af37] rounded mt-2">{problem.category}</span>
                     </button>
 

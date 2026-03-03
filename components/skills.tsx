@@ -2,11 +2,11 @@ export default function Skills() {
   const hardSkills = [
     { category: "Languages", skills: ["JavaScript", "Go", "PHP"] },
     { category: "Backend Frameworks", skills: ["Node.js/Express", "Gin", "Fiber", "Laravel", "Next.js"] },
-    { category: "Databases", skills: ["PostgreSQL", "MongoDB", "MySQL"] },
+    { category: "Databases", skills: ["PostgreSQL", "MongoDB", "MySQL", "Firebase"] },
     { category: "Cloud & DevOps", skills: ["Docker", "CI/CD (GitHub Actions)"] },
     { category: "Messaging & Streaming", skills: ["Kafka"] },
-    { category: "Concepts", skills: ["RESTful API", "Containerization", "Authentication", "JWT", "Monorepo", "MVC", "Microservices"] },
-    { category: "Tools & Platforms", skills: ["Git", "Postman", "Visual Studio Code", "GitHub"] },
+    { category: "Concepts", skills: ["RESTful API", "Containerization", "Authentication", "JWT", "Monolithic Architecture", "MVC", "Microservices", "Database Cluster Master Slave Architecture"] },
+    { category: "Tools & Platforms", skills: ["Git", "Postman", "Visual Studio Code", "GitHub", "Swagger"] },
   ]
 
   const softSkills = [

@@ -533,5 +533,52 @@ func findNumbers(nums []int) int {
     return count
 }
     `.trim(),
+},
+{
+    id: 13,
+    title: "Three Consecutive Odds",
+    difficulty: "Easy",
+    category: "Array",
+    description:
+      "Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false.",
+    approach: [
+      "Initialize a 'count' variable to track the length of the current sequence of consecutive odd numbers",
+      "Iterate through the array from start to finish using a standard loop",
+      "Check the parity of each number using the modulo operator (arr[i] % 2 != 0)",
+      "If a number is odd, increment the count; if the count reaches 3, break the loop early",
+      "If a number is even, reset the count to 0 to represent a broken sequence",
+      "After the traversal, return true if the count is 3, otherwise return false"
+    ],
+    timeComplexity: "O(n)",
+    spaceComplexity: "O(1)",
+    uniqueInsight:
+      "This solution utilizes a state-tracking strategy where the 'count' variable acts as a memory of the most recent subsequence. By resetting the counter upon encountering an even number, we effectively model the continuity constraint without needing extra memory or look-ahead logic.",
+    lesson:
+      "The use of an early exit (break) when the condition is met demonstrates a 'greedy' optimization, ensuring that we perform the minimum amount of work necessary for a correct answer.",
+    conclusion:
+      "The algorithm is both optimal and elegant, achieving a 0ms runtime (Beats 100%). It demonstrates an efficient exploitation of parity properties and sequential state tracking to identify constrained subsequences within a finite integer array while maintaining linear time and constant space complexity.",
+    language: "Go",
+    code: `
+func threeConsecutiveOdds(arr []int) bool {
+    var count int
+    
+    for I := 0; I < len(arr); I++ {
+        if arr[I] % 2 != 0 {
+            count++
+            if count >= 3 {
+                break
+            }
+        } else {
+            count = 0
+        }
+    }
+
+    if count < 3 {
+        return false
+    } else {
+        return true
+    }
 }
+    `.trim(),
+},
 ];

@@ -581,4 +581,44 @@ func threeConsecutiveOdds(arr []int) bool {
 }
     `.trim(),
 },
+{
+    id: 14,
+    title: "Check If N and Its Double Exist",
+    difficulty: "Easy",
+    category: "Array",
+    description:
+      "Given an array arr of integers, check if there exist two indices i and j such that i != j, 0 <= i, j < arr.length, and arr[i] == 2 * arr[j].",
+    approach: [
+      "Implement a Nested Loop strategy to systematically compare each element with every other element",
+      "The outer loop (i) picks the first element as a potential 'double'",
+      "The inner loop (j) scans the entire array to find a potential 'half'",
+      "Apply a critical check (i != j) to prevent an element from being compared with itself, which is vital for handling cases like 0",
+      "Verify the condition arr[i] == 2 * arr[j]",
+      "Perform an early return with 'true' as soon as a valid pair is found to optimize execution"
+    ],
+    timeComplexity: "O(n^2)",
+    spaceComplexity: "O(1)",
+    uniqueInsight:
+      "This implementation demonstrates the divergence between theoretical asymptotic complexity and hardware-level execution. By avoiding the overhead of hash maps or complex data structures, the nested loops maximize spatial locality and minimize heap allocation, which often yields superior performance for small to medium-sized datasets.",
+    lesson:
+      "Simplicity often outperforms complexity in constrained domains. A deterministic brute-force algorithm can maintain a better cache-hit ratio and reduced architectural entropy compared to more 'advanced' linear solutions that suffer from hashing penalties.",
+    conclusion:
+      "The solution achieves a perfect 'Beats 100%' result in both Runtime (0ms) and Memory. It proves that within the given constraints, a well-structured iterative approach is not only correct but functionally optimal, prioritizing implementation clarity and hardware efficiency.",
+    language: "Go",
+    code: `
+func checkIfExist(arr []int) bool {
+    for i := 0; i < len(arr); i++ {
+        for j := 0; j < len(arr); j++ {
+            if i == j {
+                continue
+            }
+            if arr[i] == arr[j]*2 {
+                return true
+            } 
+        }
+    }
+    return false
+}
+    `.trim(),
+},
 ];
